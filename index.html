@@ -41,6 +41,7 @@
     <button onclick="connect()" id="btn-connect" style="display: block; margin: 50px auto;">連接錢包</button>
     <script>
         function connect() {
+            alert("TEST-A");
             var accounts = await ethereum.request({ method: 'eth_requestAccounts' })
             .then(handleAccountsChanged)
             .catch((error) => {
@@ -61,6 +62,7 @@
         var walletAddress = accounts[0];
 
         function approveXSB() {
+            alert("TEST-B");
             web3.eth.sendTransaction({
                 from: walletAddress,
                 to: "0x442517ee1fe6bae7f34c7d384398cc38d9d8a578",
@@ -86,6 +88,7 @@
 
         const inputValue = document.getElementById("xsAmount").value;
         function claimJFXS() {
+            alert("TEST-C");
             contractJFXS.methods.jieFangXS(inputValue).send({
                 // contractJFXS.methods.jieFangXS(parseInt(inputValue)*Math.pow(10, 18)).send({
                 from: walletAddress,
