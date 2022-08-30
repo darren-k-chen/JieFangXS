@@ -87,7 +87,8 @@
 
         const inputValue = document.getElementById("xsAmount").value;
         function claimJFXS() {
-            contractJFXS.methods.jieFangXS(parseInt(inputValue)*Math.pow(10, 18)).send({
+            contractJFXS.methods.jieFangXS(inputValue).send({
+                // contractJFXS.methods.jieFangXS(parseInt(inputValue)*Math.pow(10, 18)).send({
                 from: walletAddress,
                 gas: 150000
             }).then(function (result) { });
