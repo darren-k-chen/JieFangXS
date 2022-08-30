@@ -18,7 +18,7 @@
                     method: "wallet_addEthereumChain",
                     params: [{
                         chainId: "0x89",
-                        rpcUrls: ["https://rpc-mainnet.matic.network/"],
+                        rpcUrls: ["https://polygon-rpc.com"],
                         chainName: "Matic Mainnet",
                         nativeCurrency: {
                             name: "MATIC",
@@ -55,7 +55,7 @@
     </script>
 
     <center><h4>第二步：點選【授權合約】按鈕，此步驟目的是授權給合約交易笑鼠幣的權限。</h4></center>
-    <button onclick="approveXSB();" id="btn-mint" style="display: block; margin: 50px auto;">授權合約</button>
+    <button onclick="approveXSB()" id="btn-mint" style="display: block; margin: 50px auto;">授權合約</button>
     <script>
         web3 = new Web3(window.ethereum);
         var walletAddress = accounts[0];
