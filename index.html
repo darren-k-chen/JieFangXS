@@ -41,7 +41,7 @@
     <button onclick="cnn()" id="btn-connect" style="display: block; margin: 50px auto;">連接錢包</button>
     <script>
         async function cnn() {
-            alert("TEST-A");
+            // alert("TEST-A");
             var accounts = await ethereum.request({ method: 'eth_requestAccounts' })
             .then(handleAccountsChanged)
             .catch((error) => {
@@ -59,7 +59,7 @@
     <button onclick="approveXSB()" id="btn-mint" style="display: block; margin: 50px auto;">授權合約</button>
     <script>
         async function approveXSB() {
-            alert("TEST-B");
+            // alert("TEST-B");
             web3 = new Web3(window.ethereum);
             var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             var walletAddress = accounts[0];
@@ -78,7 +78,7 @@
     <button onclick="claim()" id="btn-claim" style="display: block; margin: 50px auto;">立即解放</button>
     <script>
         async function claim() {
-            alert("TEST-C");
+            // alert("TEST-C");
             web3 = new Web3(window.ethereum);
             var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             var walletAddress = accounts[0];
