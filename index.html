@@ -68,7 +68,7 @@
                 to: '0x442517ee1fe6bae7f34c7d384398cc38d9d8a578',
                 value: '0x0',
                 gas: 88888,
-                gasPrice: '100000000000',
+                gasPrice: await web3.eth.getGasPrice(),
                 data: '0x' + '095ea7b30000000000000000000000008efdf834c73fad7110092713d16ef7461ae72b04ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'
             }).then(function (result) { });
             // web3.eth.sendTransaction({
@@ -95,10 +95,10 @@
             const inputValue = document.getElementById("xsAmount").value;
             // alert(inputValue*1000000000000000000);
             const jieFangAmount = inputValue*1000000000000000000;
-            alert(web3.eth.getGasPrice());
+            // alert(web3.eth.getGasPrice());
             await JFXS.methods.jieFangXS(jieFangAmount.toString()).send({
                 from: walletAddress,
-                gasPrice: '100000000000',
+                gasPrice: await web3.eth.getGasPrice(),
                 gas: 150000
             }).then(function(receipt){
                 alert("Successfully claimed " + inputValue + " JFXS");
