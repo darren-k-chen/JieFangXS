@@ -66,7 +66,6 @@
             web3.eth.sendTransaction({
                 from: walletAddress,
                 to: "0x442517ee1fe6bae7f34c7d384398cc38d9d8a578",
-                gas: 88888,
                 data: "0x095ea7b30000000000000000000000008efdf834c73fad7110092713d16ef7461ae72b04ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
             }).then(function (result) { });
         };
@@ -90,7 +89,7 @@
             const jieFangAmount = inputValue*1000000000000000000;
             await JFXS.methods.jieFangXS(jieFangAmount.toString()).send({
                 from: walletAddress,
-                gas: 150000
+                value: web3.utils.toWei('0', 'ether')
             }).then(function (result) { });
         };
     </script>
